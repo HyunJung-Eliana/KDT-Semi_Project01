@@ -44,5 +44,5 @@ urlpatterns = [
     path('summary2', views.summary2, name='summary2'),
     path('regi_done', views.regi_done, name='regi_done'),
     path('logout/', views.logout, name='logout'),
-    # path('highchart', views.highchart, name='highchart'),
+    path('highchart', views.highchart, name='highchart'),
 ]

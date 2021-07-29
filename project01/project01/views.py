@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
+from myanalysis.openapi import OpenAPI
 from .models import User
 from matplotlib import pyplot as plt
 from plotly.offline import plot
@@ -318,5 +319,6 @@ def summary2(request):
 
 	return render(request, 'summary2.html')
 
-# def highchart(request):
-#     return HttpResponse(json.dumps(data), content_type='application/json');
+def highchart(request):
+	data = OpenAPI().vaccine();
+	return HttpResponse(json.dumps(data), content_type='application/json');

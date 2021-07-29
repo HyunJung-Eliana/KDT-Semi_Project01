@@ -10,7 +10,7 @@
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     <script src="http://code.jquery.com/jquery-1.7.js"></script>
     <script>
-        function display2() {
+        function display2(data) {
             Highcharts.chart('container2', {
 
                 chart: {
@@ -18,11 +18,11 @@
                 },
 
                 title: {
-                    text: '실시간 Covid-19 차트'
+                    text: 'Covid-19 Vaccine FirstCnt'
                 },
 
                 subtitle: {
-                    text: ''
+                    text: '(실시간, 단위 : 천 명)'
                 },
 
                 legend: {
@@ -30,10 +30,9 @@
                 },
 
                 series: [{
-                    name: 'Representatives',
+                    name: 'Covid-19 Vaccine FirstCnt',
                     keys: ['name', 'y', 'color', 'label'],
-                    data: [['치료중 환자 수', 2, '#EB001F', '치료중 환자 수'], ['격리해제 수', 17, '#64A12D', '격리해제 수'], ['확진자 수',
-                        19, '#000000', '확진자 수'], ['검사진행 수', 27, '#008AC5', '검사진행 수'], ['단위 : 1만명', , '#FFFFFF', '']],
+                    data: data,
                     dataLabels: {
                         enabled: true,
                         format: '{point.label}'
@@ -51,8 +50,8 @@
         $.ajax({
                 url:'highchart',
                 datatype:'JSON',
-                success:function(){
-                    display2();
+                success:function(data){
+                    display2(data);
                 }
         })
       };
